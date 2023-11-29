@@ -1,30 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- activity_main.xml -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:gravity="center"
     android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/editTextEmail"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="E-mail"
-        android:inputType="textEmailAddress" />
-
-    <EditText
-        android:id="@+id/editTextUsuario"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editTextEmail"
-        android:layout_marginTop="16dp"
-        android:hint="Usuário"
-        android:inputType="text" />
-
-    <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editTextUsuario"
-        android:layout_marginTop="16dp"
-        android:text="Login" />
+        android:text="Pedidos Online"
+        android:textSize="24sp"
+    <!-- Adicione elementos de boas-vindas ou navegação aqui -->
 
 </RelativeLayout>
