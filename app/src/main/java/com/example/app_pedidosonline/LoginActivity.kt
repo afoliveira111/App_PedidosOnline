@@ -1,8 +1,10 @@
 package com.example.app_pedidosonline
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 
@@ -12,17 +14,17 @@ class LoginActivity : AppCompatActivity() {
             super.onCreate(savedInstanceState)
             setContentView(R.layout.activity_login)
 
-            val emailEditText: EditText = findViewById(R.id.emailEditText)
-            val passwordEditText: EditText = findViewById(R.id.passwordEditText)
-            val loginButton: Button = findViewById(R.id.loginButton)
+            val emailEditText: EditText = findViewById(R.id.editTextEmail)
+            val usuarioEditText: EditText = findViewById(R.id.editTextUsuario)
+            val loginButton: Button = findViewById(R.id.btnLogin)
 
             loginButton.setOnClickListener {
-                val email = emailEditText.text.toString()
-                val password = passwordEditText.text.toString()
+                val email = emailEditText.text.toString().trim()
+                val usuario = usuarioEditText.text.toString().trim()
 
-                if (isValidInput(email, password)) {
+                if (isValidInput(email, usuario)) {
                     // Autenticação com Firebase
-                    FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
+                    FirebaseAuth.getInstance().signInWithEmailAndPassword(email, usuario)
                         .addOnCompleteListener(this) { task ->
                             if (task.isSuccessful) {
                                 // Login bem-sucedido, redirecionar para a tela de pedidos
@@ -40,8 +42,8 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
-        private fun isValidInput(email: String, password: String): Boolean {
-            return email.isNotEmpty() && password.isNotEmpty()
+        private fun isValidInput(email: String, usuario: String): Boolean {
+            return email.isNotEmpty() && usuario.isNotEmpty()
         }
     }
 }
